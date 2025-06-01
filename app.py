@@ -4,10 +4,7 @@ import joblib
 
 
 # Load models and features
-knn = joblib.load('knn_model.pkl')
-dt = joblib.load('dt_model.pkl')
-lr = joblib.load('lr_model.pkl')
-meta_model = joblib.load('meta_model.pkl')
+rf_model = joblib.load('random_forest_model.pkl')
 feature_names = joblib.load('feature_names.pkl')
 
 # Optional: hardcoded list of unique diseases
@@ -90,14 +87,9 @@ user_input = [input_dict.get(f, 0) for f in feature_names]
 
 # Predict
 if st.button("Predict"):
+
     input_array = np.array(user_input).reshape(1, -1)
+    prediction = rf_model.predict(input_array)[0]
 
-    knn_pred = knn.predict(input_array)
-    dt_pred = dt.predict(input_array)
-    lr_pred = lr.predict(input_array)
-
-    meta_features = np.column_stack((knn_pred, dt_pred, lr_pred))
-    final_prediction = meta_model.predict(meta_features)[0]
-
-    result = "Positif" if final_prediction == 1 else "Negatif"
+    result = "Positif" if prediction == 1 else "Negatif"
     st.success(f"Hasil Prediksi: {result}")
