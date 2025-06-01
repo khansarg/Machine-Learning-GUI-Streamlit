@@ -38,7 +38,7 @@ unique_diseases = sorted([
 
 
 # UI
-st.title("Prediksi Penyakit - Stacking Classifier")
+st.title("Prediksi Penyakit - Random Forest")
 
 # Input fields
 age = st.number_input("Age", min_value=0, max_value=120, value=25)
