@@ -39,7 +39,9 @@ unique_diseases = sorted([
 
 # UI
 st.title("Prediksi Penyakit - Random Forest")
-
+st.text("Khansa Resqi Ghassani")
+st.text("Fadhilah Kartika Firdausi")
+st.text("Khaulah Qurota Ain")
 # Input fields
 age = st.number_input("Age", min_value=0, max_value=120, value=25)
 
