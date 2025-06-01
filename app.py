@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import joblib
-import json
+
 
 # Load models and features
 knn = joblib.load('knn_model.pkl')
